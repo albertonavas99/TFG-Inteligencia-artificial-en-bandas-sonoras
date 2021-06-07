@@ -86,7 +86,7 @@ generador_test = datos_test.flow_from_dataframe(
 #Red neuronal secuencial (Varias capas apiladas)
 model = tf.keras.models.Sequential()
 
-#La primera capa va a ser una convolución (reducir imagen) con 32 filtros, con un kernel de 3x3,
+#La primera capa va a ser una convolución (reducir imagen) con 128 filtros, con un kernel de 3x3,
 #con padding, y la función de activación es relu
 model.add(tf.keras.layers.Conv2D(128,(3,3), padding='same',  activation = 'relu', input_shape = (216,216,3)))
 
@@ -99,9 +99,7 @@ model.add(tf.keras.layers.Flatten())
 
 #Capa con 256 neuronas conectadas a la imagen aplanada en el paso anterior
 model.add(tf.keras.layers.Dense(256, activation='relu'))
-#model.add(tf.keras.layers.Dropout(0.2))
 
-#model.add(tf.keras.layers.Dense(512, activation='relu'))
 
 #Capa de normalizacion (entre 0.5 y 0.8).
 model.add(tf.keras.layers.Dropout(0.2))
